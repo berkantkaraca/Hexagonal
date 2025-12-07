@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="Core/Hexagonal.Application/Hexagonal.Application.csproj" />
+    <Project Path="Core/Hexagonal.Domain/Hexagonal.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Host/">
+    <Project Path="Host/Hexagonal.ApiHost/Hexagonal.ApiHost.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Infrastructure/Hexagonal.Persistence/Hexagonal.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Presentation/Hexagonal.WebApi/Hexagonal.WebApi.csproj" />
+  </Folder>
+</Solution>
