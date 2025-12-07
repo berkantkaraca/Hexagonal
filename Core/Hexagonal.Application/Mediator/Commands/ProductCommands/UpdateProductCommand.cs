@@ -1,0 +1,13 @@
+using Hexagonal.Application.Mediator.Results.ProductResults.QueryResults;
+using MediatR;
+
+namespace Hexagonal.Application.Mediator.Commands.ProductCommands
+{
+    public class UpdateProductCommand : IRequest<GetProductByIdQueryResult>
+    {
+        public int Id { get; set; }
+        public string ProductName { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int? CategoryId { get; set; }
+    }
+}
