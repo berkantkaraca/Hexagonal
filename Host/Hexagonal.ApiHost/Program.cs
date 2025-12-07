@@ -1,3 +1,6 @@
+using Hexagonal.Application.DependencyResolvers;
+using Hexagonal.Persistence.DependencyResolvers;
+using Hexagonal.WebApi.Controllers;
 
 namespace Hexagonal.ApiHost
 {
@@ -7,16 +10,19 @@ namespace Hexagonal.ApiHost
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddControllers().AddApplicationPart(typeof(CategoryController).Assembly); 
+            //Controller'larin bulundugu assembly'i tanýtýyoruz ki API cagrýlarýnda Controller'lar nerede bulunabilsin. Burada Asp .Net Core'a sunu demiþ oluyoruz : "Hexagonal.WebApi icindeki Controllerlarý da kullan"
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddHandlerService();
+            builder.Services.AddMapperService();
+            builder.Services.AddDbContextServices();
+            builder.Services.AddRepositoryServices();
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

@@ -5,7 +5,7 @@ namespace Hexagonal.Application.DependencyResolvers
 {
     public static class MapperResolver
     {
-        public static void AddDtoMapperService(this IServiceCollection services)
+        public static void AddMapperService(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingProfile));
         }
